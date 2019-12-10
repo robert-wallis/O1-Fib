@@ -25,8 +25,8 @@ long long fib(int n) {
 * fib(2) is just as fast as fib(60)
 
 ```
-./fibbench
-2019-12-10 01:27:26
+./fibbench 
+2019-12-10 02:08:43
 Running ./fibbench
 Run on (16 X 2400 MHz CPU s)
 CPU Caches:
@@ -34,22 +34,21 @@ CPU Caches:
   L1 Instruction 32 KiB (x8)
   L2 Unified 256 KiB (x8)
   L3 Unified 16384 KiB (x1)
-Load Average: 1.74, 1.59, 1.73
-***WARNING*** Library was built as DEBUG. Timings may be affected.
+Load Average: 2.06, 1.85, 1.77
 -----------------------------------------------------
 Benchmark           Time             CPU   Iterations
 -----------------------------------------------------
-BM_Fib/1         28.0 ns         28.0 ns     24638431
-BM_Fib/2         46.9 ns         46.9 ns     13153691
-BM_Fib/3         47.0 ns         47.0 ns     12850167
-BM_Fib/4         46.8 ns         46.8 ns     13770040
-BM_Fib/10        47.2 ns         47.2 ns     12950253
-BM_Fib/20        47.0 ns         47.0 ns     13379205
-BM_Fib/40        47.3 ns         47.3 ns     13698094
-BM_Fib/60        47.1 ns         47.1 ns     10767740
-BM_Fib/90        47.6 ns         47.6 ns     12798947
-BM_Fib_BigO      44.99 (1)       44.98 (1)  
-BM_Fib_RMS         13 %            13 %
+BM_Fib/1         16.7 ns         16.7 ns     40138765
+BM_Fib/2         33.5 ns         33.5 ns     21219130
+BM_Fib/3         32.3 ns         32.3 ns     21472985
+BM_Fib/4         32.4 ns         32.4 ns     20765844
+BM_Fib/10        32.3 ns         32.3 ns     21476082
+BM_Fib/20        34.6 ns         34.6 ns     21289279
+BM_Fib/40        32.2 ns         32.2 ns     21380705
+BM_Fib/60        32.5 ns         32.5 ns     20973846
+BM_Fib/90        32.1 ns         32.1 ns     21269355
+BM_Fib_BigO      30.97 (1)       30.96 (1)  
+BM_Fib_RMS         16 %            16 %    
 ```
 
 # Building
@@ -58,7 +57,7 @@ Using CMake
 ```
 git submodule update --init --recursive
 mkdir build && cd build
-cmake ../
+cmake -DCMAKE_BUILD_TYPE=Release ../
 make -j$(sysctl -n hw.ncpu)
 ```
 

@@ -4,7 +4,7 @@
 
 static void BM_Fib(benchmark::State& state) {
     for (auto _ : state) {
-        fib(state.range(0));
+        benchmark::DoNotOptimize(fib(state.range(0)));
     }
     state.SetComplexityN(state.range(0));
 }
